@@ -602,6 +602,40 @@
     }
 }());
 
+/*!
+ * numeral.js language configuration
+ * language : Latvian (lv)
+ * author : Lauris Bukšis-Haberkorns : https://github.com/Lafriks
+ */
+(function () {
+    var language = {
+        delimiters: {
+            thousands: ' ',
+            decimal: ','
+        },
+        abbreviations: {
+            thousand: ' tūkst.',
+            million: ' milj.',
+            billion: ' mljrd.',
+            trillion: ' trilj.'
+        },
+        ordinal: function (number) {
+            return '.';
+        },
+        currency: {
+            symbol: '€'
+        }
+    };
+    // Node
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = language;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && this.numeral && this.numeral.language) {
+        this.numeral.language('lv', language);
+    }
+}());
+
 /*! 
  * numeral.js language configuration
  * language : netherlands-dutch (nl-nl)
@@ -752,8 +786,8 @@
         abbreviations: {
             thousand: 'тыс.',
             million: 'млн',
-            billion: 'b',
-            trillion: 't'
+            billion: 'млрд',
+            trillion: 'трлн'
         },
         ordinal: function () {
             // not ideal, but since in Russian it can taken on 
@@ -790,8 +824,8 @@
         abbreviations: {
             thousand: 'тыс.',
             million: 'млн',
-            billion: 'b',
-            trillion: 't'
+            billion: 'млрд',
+            trillion: 'трлн'
         },
         ordinal: function () {
             // not ideal, but since in Russian it can taken on 
